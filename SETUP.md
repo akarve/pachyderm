@@ -41,6 +41,8 @@ Clone this repo under your `GOPATH`:
 ```shell
 # this will put the repo under $GOPATH/src/github.com/pachyderm/pachyderm
 $ go get github.com/pachyderm/pachyderm
+# install pachyderm binaries
+$ make install
 ```
 
 ## Platform Specific Installations
@@ -143,9 +145,13 @@ gcloud compute instances attach-disk [INSTANCE_NAME] --disk [STORAGE_NAME]
 Follow [these instructions](https://cloud.google.com/compute/docs/disks/add-persistent-disk#formatting) to format and mount the disk.
 Do not add the disk to `/etc/fstab`.
 
-Lastly, clean the persistent disk of all files and directories.
+Clean the persistent disk of all files and directories.
 ```shell
 rm -rf [path-to-disk]/*
+```
+Lastly, detach the persistent disk. Kubernetes will automatically attach it as needed.
+```shell
+gcloud compute instances detach-disk [INSTANCE_NAME] --disk [STORAGE_NAME]
 ```
 
 ### Deploy Pachyderm
