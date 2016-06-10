@@ -1,14 +1,5 @@
 # Setup
 
-## Intro
-
-Pachyderm is built on [Kubernetes](http://kubernetes.io/).  As such, technically Pachyderm can run on any platform that Kubernetes supports.  This guide covers the following commonly used platforms:
-
-* [Local](#local-deployment)
-* [Google Cloud Platform](#google-cloud-platform)
-* [AWS](#amazon-web-services-aws)
-
-Each section starts with deploying Kubernetes on the said platform, and then moves on to deploying Pachyderm on Kubernetes.  If you have already set up Kubernetes on your platform, you may directly skip to the second part.
 
 ## Common Prerequisites
 
@@ -52,6 +43,15 @@ Clone this repo under your `GOPATH`:
 $ go get github.com/pachyderm/pachyderm
 ```
 
+## Platform Specific Installations
+
+Pachyderm is built on [Kubernetes](http://kubernetes.io/).  As such, technically Pachyderm can run on any platform that Kubernetes supports.  This guide covers the following commonly used platforms:
+
+* [Local](#local-deployment)
+* [Google Cloud Platform](#google-cloud-platform)
+* [AWS](#amazon-web-services-aws)
+
+Each section starts with deploying Kubernetes on the said platform, and then moves on to deploying Pachyderm on Kubernetes.  If you have already set up Kubernetes on your platform, you may directly skip to the second part.
 
 ## Local Deployment
 
@@ -135,17 +135,15 @@ $ gcloud compute disks list
 
 ### Format Volume
 
-First, attach your persistent disk to an instance in your cluster as follows:
-
+First, attach your persistent disk to an instance in your cluster. Any instance will do.
 ```shell
 gcloud compute instances attach-disk [INSTANCE_NAME] --disk [STORAGE_NAME]
 ```
 
-Next, follow [these instructions](https://cloud.google.com/compute/docs/disks/add-persistent-disk#formatting) to format and mount the disk.
+Follow [these instructions](https://cloud.google.com/compute/docs/disks/add-persistent-disk#formatting) to format and mount the disk.
 Do not add the disk to `/etc/fstab`.
 
-
-Lastly, carefully clean the persistend disk of all files and directories.
+Lastly, clean the persistent disk of all files and directories.
 ```shell
 rm -rf [path-to-disk]/*
 ```
