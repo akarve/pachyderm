@@ -106,8 +106,6 @@ $ gcloud components install kubectl
 
 ### Set up the infrastructure
 
-Pachyderm needs a [container cluster](https://cloud.google.com/container-engine/), a [GCS bucket](https://cloud.google.com/storage/docs/), and a [persistent disk](https://cloud.google.com/compute/docs/disks/) to function correctly.  We've made this very easy for you.
-
 First of all, set three environment variables:
 
 ```shell
