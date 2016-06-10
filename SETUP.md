@@ -180,7 +180,7 @@ $ make MANIFEST=manifest launch
 ```
 
 It may take a while to complete for the first time, as a lot of Docker images need to be pulled.
-If you need to start over during the above process, `make clean`, `kubectl delete -f manifest.json`, followed by another `make install` may be helpful.
+If you need to start over during the above process, `make clean`, `kubectl delete -f manifest`, followed by another `make install` may be helpful.
 
 ## Amazon Web Services (AWS)
 
